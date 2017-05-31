@@ -1,0 +1,30 @@
+{
+  "name": "windows-xp-error-simulator",
+  "version": "1.0.0",
+  "description": "A Windows XP error simulator. Let you draw using an error window.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "windowsxp",
+    "windows",
+    "xp",
+    "error",
+    "simulator",
+    "draw",
+    "fun",
+    "game"
+  ],
+  "author": "Romain Giovanetti",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.11",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.4.0",
+    "gulp-image": "^2.9.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-webserver": "^0.9.1"
+  }
+}

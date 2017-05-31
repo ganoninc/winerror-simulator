@@ -1,0 +1,6 @@
+body {
+  background-color: #000000;
+  margin: 0px;
+  overflow: hidden;
+  background-image: url("/img/wallpaper.jpg");
+  background-size: cover; }
