@@ -10,18 +10,14 @@ body {
 }
 
 .draggable-window {
-	display: none;
+  display: none;
   position: absolute;
   background: $windowURL;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: auto;
   width: 354px;
   height: 120px;
   .draggable-window__title-bar-area {
-  	  width: 354px;
-  		height: 30px;
+    width: 354px;
+    height: 30px;
   }
 }

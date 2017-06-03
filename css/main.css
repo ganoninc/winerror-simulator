@@ -9,10 +9,6 @@ body {
   display: none;
   position: absolute;
   background: url("/img/window.png");
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: auto;
   width: 354px;
   height: 120px; }
