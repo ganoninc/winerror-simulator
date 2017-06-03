@@ -46,7 +46,7 @@ gulp.task('sass:build', function () {
 });
 
 gulp.task('sass:watch', function () {
-    gulp.watch('./sass/*.sass', ['sass:build']);
+    gulp.watch('./sass/*.scss', ['sass:build']);
 });
 
 gulp.task('webserver', function() {
