@@ -7,7 +7,7 @@
 */
 
 var draggableWindow = function(){
-    var displayDelay = 2500;
+    var displayDelay = 1000;
     var div = document.getElementById("draggable-window");
     var divTitleBarArea = document.getElementById("draggable-window__title-bar-area");
     var divHeight = 120;
@@ -54,11 +54,14 @@ var draggableWindow = function(){
                     x : event.clientX,
                     y : event.clientY
                 };
-                var newDivCoordinates = {
-                    left: (mousePosition.x + offset[0]),
-                    top: (mousePosition.y + offset[1])
-                };
-                moveDiv(newDivCoordinates.left, newDivCoordinates.top);
+                var viewportSize = getViewportSize();
+                if(mousePosition.y > 2 && mousePosition.y < viewportSize.height - 2 && mousePosition.x > 2 && mousePosition.x < viewportSize.width - 2){
+                    var newDivCoordinates = {
+                        left: (mousePosition.x + offset[0]),
+                        top: (mousePosition.y + offset[1])
+                    };
+                    moveDiv(newDivCoordinates.left, newDivCoordinates.top); 
+                }
             }
         }, true);
     };
