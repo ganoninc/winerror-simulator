@@ -7,7 +7,7 @@
 */
 
 var draggableWindow = function(){
-    var displayDelay = 1000;
+    var displayDelay = 2000;
     var div = document.getElementById("draggable-window");
     var divTitleBarArea = document.getElementById("draggable-window__title-bar-area");
     var divHeight = 120;
@@ -16,10 +16,14 @@ var draggableWindow = function(){
     var offset = [0,0];
     var isDown = false;
     var userHasMovedTheDiv = false;
+    var errorSound = document.getElementById("error-sound");
 
     var init = function(){
         addEventListeners();
-        setTimeout(display, displayDelay);
+        setTimeout(function(){
+            display();
+            playErrorSound();
+        }, displayDelay);
     };
 
     var addEventListeners = function(){
@@ -103,6 +107,10 @@ var draggableWindow = function(){
     var moveDiv = function(left, top){
         div.style.left = left + "px";
         div.style.top  = top + "px";
+    };
+
+    var playErrorSound = function(){
+        errorSound.play();
     };
 
     var display = function(){
