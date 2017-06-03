@@ -2,8 +2,20 @@ body {
   background-color: black;
   margin: 0px;
   overflow: hidden;
-  background: url("/img/wallpaper4.jpg") no-repeat center center fixed;
+  background: url("/img/wallpaper.jpg") no-repeat center center fixed;
   background-size: cover; }
 
 .draggable-window {
-  color: red; }
+  display: none;
+  position: absolute;
+  background: url("/img/window.png");
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 354px;
+  height: 120px; }
+  .draggable-window .draggable-window__title-bar-area {
+    width: 354px;
+    height: 30px; }

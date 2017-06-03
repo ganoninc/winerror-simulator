@@ -1,4 +1,5 @@
-$wallpaperURL: url("/img/wallpaper4.jpg");
+$wallpaperURL: url("/img/wallpaper.jpg");
+$windowURL: url("/img/window.png");
 
 body {
   background-color: black;
@@ -9,5 +10,18 @@ body {
 }
 
 .draggable-window {
-  color:red;
+	display: none;
+  position: absolute;
+  background: $windowURL;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 354px;
+  height: 120px;
+  .draggable-window__title-bar-area {
+  	  width: 354px;
+  		height: 30px;
+  }
 }
