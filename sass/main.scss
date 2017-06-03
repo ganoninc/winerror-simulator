@@ -1,0 +1,13 @@
+$wallpaperURL: url("/img/wallpaper4.jpg");
+
+body {
+  background-color: black;
+  margin: 0px;
+  overflow: hidden;
+  background: $wallpaperURL no-repeat center center fixed;
+  background-size: cover;
+}
+
+.draggable-window {
+  color:red;
+}

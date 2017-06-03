@@ -26,7 +26,7 @@ gulp.task('img:optimize', function () {
 });
 
 gulp.task('css:compress', function () {
-    gulp.src('./sass/*.sass')
+    gulp.src('./sass/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./build/css'));
@@ -40,7 +40,7 @@ gulp.task('index:copy', function () {
 gulp.task('build', ['css:compress', 'js:compress', 'img:optimize', 'index:copy']);
 
 gulp.task('sass:build', function () {
-    gulp.src('./sass/*.sass')
+    gulp.src('./sass/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./css'));
 });
