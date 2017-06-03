@@ -15,6 +15,7 @@ var draggableWindow = function(){
     var mousePosition;
     var offset = [0,0];
     var isDown = false;
+    var userHasMovedTheDiv = false;
 
     var init = function(){
         addEventListeners();
@@ -25,6 +26,7 @@ var draggableWindow = function(){
         addMouseDownEventListenerToTitleBarArea();
         addMouseUpEventListenerToTheWholePage();
         addMouseMoveEventListenerToTheWholePage();
+        addWindowResizeEventListenerToTheWholePage();
     };
 
     var addMouseDownEventListenerToTitleBarArea = function(){
@@ -47,14 +49,57 @@ var draggableWindow = function(){
         document.addEventListener('mousemove', function(event) {
             event.preventDefault();
             if (isDown) {
+                userHasMovedTheDiv = true;
                 mousePosition = {
                     x : event.clientX,
                     y : event.clientY
                 };
-                div.style.left = (mousePosition.x + offset[0]) + 'px';
-                div.style.top  = (mousePosition.y + offset[1]) + 'px';
+                var newDivCoordinates = {
+                    left: (mousePosition.x + offset[0]),
+                    top: (mousePosition.y + offset[1])
+                };
+                moveDiv(newDivCoordinates.left, newDivCoordinates.top);
             }
         }, true);
+    };
+
+    var addWindowResizeEventListenerToTheWholePage = function(){
+        window.onresize = function(){
+            if(userHasMovedTheDiv){
+                if(isDivOutsideOfTheViewport()){
+                    centerDiv();
+                }
+            }else{
+                centerDiv();
+            }
+        };
+    };
+
+    var isDivOutsideOfTheViewport = function(){
+        var divCoordinates = getDivCoordinates();
+        var viewportSize = getViewportSize();
+        var isDivVerticallyOutside = divCoordinates.top + 25 > viewportSize.height;
+        var isDivHorizontallyOutside = divCoordinates.left + 25 > viewportSize.width;
+        return isDivVerticallyOutside || isDivHorizontallyOutside;
+    };
+
+    var getDivCoordinates = function(){
+        return{
+            left: parseInt(div.style.left, 10),
+            top: parseInt(div.style.top, 10)
+        };
+    };
+
+    var getViewportSize = function(){
+        return {
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    };
+
+    var moveDiv = function(left, top){
+        div.style.left = left + "px";
+        div.style.top  = top + "px";
     };
 
     var display = function(){
@@ -64,15 +109,13 @@ var draggableWindow = function(){
 
     var centerDiv = function(){
         var newDivCoordinates = getCoordinatesToCenterDiv();
-        div.style.left = newDivCoordinates.left + "px";
-        div.style.top  = newDivCoordinates.top + "px";
+        moveDiv(newDivCoordinates.left, newDivCoordinates.top);
     };
 
     var getCoordinatesToCenterDiv = function(){
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
-        var windowHorizontalCenter = windowWidth / 2;
-        var windowVerticalCenter = windowHeight / 2;
+        var viewportSize = getViewportSize();
+        var windowHorizontalCenter = viewportSize.width / 2;
+        var windowVerticalCenter = viewportSize.height / 2;
         var divHorizontalOffset = divWidth / 2;
         var divVerticalOffset = divHeight / 2;
         return {
