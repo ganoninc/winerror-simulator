@@ -1,5 +1,6 @@
 $wallpaperURL: url("/img/wallpaper.jpg");
 $windowURL: url("/img/window.png");
+$unfocusedWindowURL: url("/img/unfocused-window.png");
 
 body {
   background-color: black;
@@ -16,6 +17,11 @@ body {
   margin: auto;
   width: 354px;
   height: 120px;
+
+  &--state-unfocused {
+    background: $unfocusedWindowURL;
+  }
+  
   .draggable-window__title-bar-area {
     width: 354px;
     height: 31px;

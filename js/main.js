@@ -2,7 +2,9 @@
 
 /* 
 
-    Credit to jnoreiga@stackoverflow.com (https://stackoverflow.com/questions/9334084/moveable-draggable-div)
+    Credit to:
+        - jnoreiga@stackoverflow.com (https://stackoverflow.com/questions/9334084/moveable-draggable-div)
+        - jfriend00@stackoverflow.com (https://stackoverflow.com/questions/6921275/is-it-possible-to-chain-settimeout-functions-in-javascript)
 
 */
 
@@ -17,6 +19,8 @@ var draggableWindow = function(){
     var isDown = false;
     var userHasMovedTheDiv = false;
     var errorSound = document.getElementById("error-sound");
+    var dingSound = document.getElementById("ding-sound");
+    var forcedFocusAnimationDelay = 75;
 
     var init = function(){
         addEventListeners();
@@ -27,10 +31,18 @@ var draggableWindow = function(){
     };
 
     var addEventListeners = function(){
+        addMouseDownEventListenerToTheWholePage();
         addMouseDownEventListenerToTitleBarArea();
         addMouseUpEventListenerToTheWholePage();
         addMouseMoveEventListenerToTheWholePage();
         addWindowResizeEventListenerToTheWholePage();
+    };
+
+    var addMouseDownEventListenerToTheWholePage = function(){
+        document.addEventListener('mousedown', function(event) {
+            if(event.target.id != "draggable-window" && event.target.id != "draggable-window__title-bar-area")
+                playForcedFocusAnimation();
+        }, true);
     };
 
     var addMouseDownEventListenerToTitleBarArea = function(){
@@ -113,6 +125,10 @@ var draggableWindow = function(){
         errorSound.play();
     };
 
+    var playDingSound = function(){
+        dingSound.play();
+    };
+
     var display = function(){
         centerDiv();
         div.style.display = "block";
@@ -135,5 +151,58 @@ var draggableWindow = function(){
         };
     };
 
+    var playForcedFocusAnimation = function(){
+        playDingSound();
+        delay(addUnfocusedStateToDiv, forcedFocusAnimationDelay)
+            .delay(removeUnfocusedStateToDiv, forcedFocusAnimationDelay)
+            .delay(addUnfocusedStateToDiv, forcedFocusAnimationDelay)
+            .delay(removeUnfocusedStateToDiv, forcedFocusAnimationDelay)
+            .delay(addUnfocusedStateToDiv, forcedFocusAnimationDelay)
+            .delay(removeUnfocusedStateToDiv, forcedFocusAnimationDelay);
+    };
+
+    var addUnfocusedStateToDiv = function(){
+        div.classList.add('draggable-window--state-unfocused');
+    };
+
+    var removeUnfocusedStateToDiv = function(){
+        div.classList.remove('draggable-window--state-unfocused');
+    };
+
     init();
 }();
+
+
+function delay(fn, t) {
+    // private instance variables
+    var queue = [], self, timer;
+    
+    function schedule(fn, t) {
+        timer = setTimeout(function() {
+            timer = null;
+            fn();
+            if (queue.length) {
+                var item = queue.shift();
+                schedule(item.fn, item.t);
+            }
+        }, t);            
+    }
+    self = {
+        delay: function(fn, t) {
+            // if already queuing things or running a timer, 
+            //   then just add to the queue
+              if (queue.length || timer) {
+                queue.push({fn: fn, t: t});
+            } else {
+                // no queue or timer yet, so schedule the timer
+                schedule(fn, t);
+            }
+            return self;
+        },
+        cancel: function() {
+            clearTimeout(timer);
+            queue = [];
+        }
+    };
+    return self.delay(fn, t);
+}

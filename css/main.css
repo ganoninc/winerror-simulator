@@ -12,6 +12,8 @@ body {
   margin: auto;
   width: 354px;
   height: 120px; }
+  .draggable-window--state-unfocused {
+    background: url("/img/unfocused-window.png"); }
   .draggable-window .draggable-window__title-bar-area {
     width: 354px;
     height: 31px; }
