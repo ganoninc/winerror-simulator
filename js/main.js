@@ -9,7 +9,7 @@
 */
 
 var draggableWindow = function(){
-    var displayDelay = 2000;
+    var displayDelay = 1025;
     var div = document.getElementById("draggable-window");
     var divTitleBarArea = document.getElementById("draggable-window__title-bar-area");
     var divHeight = 120;
