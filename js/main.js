@@ -9,8 +9,6 @@ define(['draggableWindow', 'frozenBackground', 'sound'], function(draggableWindo
             displayDraggableWindow();
         };
 
-        init();
-
         var addEventListeners = function(){
             addMouseDownEventListenerToTheWholePage();
             draggableWindow.addMouseDownEventListenerToTitleBar();
@@ -56,5 +54,7 @@ define(['draggableWindow', 'frozenBackground', 'sound'], function(draggableWindo
             sound.playDingSound();
             draggableWindow.playForcedFocusAnimation();
         };
+
+        init();
     }();
 });
