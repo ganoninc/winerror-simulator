@@ -2,18 +2,18 @@ body {
   background-color: black;
   margin: 0px;
   overflow: hidden;
-  background: url("/img/wallpaper.jpg") no-repeat center center fixed;
+  background: url("./img/wallpaper.jpg") no-repeat center center fixed;
   background-size: cover; }
 
 .draggable-window {
   display: none;
   position: absolute;
-  background: url("/img/window.png");
+  background: url("./img/window.png");
   margin: auto;
   width: 354px;
   height: 120px; }
   .draggable-window--state-unfocused {
-    background: url("/img/unfocused-window.png"); }
+    background: url("./img/unfocused-window.png"); }
   .draggable-window .draggable-window__title-bar-area {
     width: 354px;
     height: 31px; }
