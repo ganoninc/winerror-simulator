@@ -18,21 +18,18 @@
   ],
   "author": "Romain Giovanetti",
   "license": "ISC",
-  "repository" :
-  { 
-    "type" : "git",
-    "url" : "https://github.com/ganoninc/winerror-simulator.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ganoninc/winerror-simulator.git"
   },
   "devDependencies": {
     "browser-sync": "^2.18.11",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.4.0",
     "gulp-image": "^2.9.0",
+    "gulp-requirejs": "^1.0.0-rc2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.2",
     "gulp-webserver": "^0.9.1"
-  },
-  "scripts": {
-    "build-css": "node-sass --include-path scss sass/main.scss   css/main.css"
   }
 }

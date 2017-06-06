@@ -4,19 +4,20 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const webserver = require('gulp-webserver');
 const uglify = require('gulp-uglify');
-const pump = require('pump');
 const gulpCopy = require('gulp-copy');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const image = require('gulp-image');
+const rjs = require('gulp-requirejs');
 
-gulp.task('js:compress', function () {
-  pump([
-    gulp.src('./js/*.js'),
-    uglify(),
-    gulp.dest('./build/js')
-    ]
-    );
+gulp.task('js:buildRJSAndcompress', function() {
+    return rjs({
+        name: 'app',
+        baseUrl: './js/',
+        out: 'app.js',
+    })
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/js/')); // pipe it to the output DIR 
 });
 
 gulp.task('img:optimize', function () {
@@ -37,7 +38,7 @@ gulp.task('index:copy', function () {
   .pipe(gulpCopy('./build'));
 });
 
-gulp.task('build', ['css:compress', 'js:compress', 'img:optimize', 'index:copy']);
+gulp.task('build', ['css:compress', 'js:buildRJSAndcompress', 'img:optimize', 'index:copy']);
 
 gulp.task('sass:build', function () {
     gulp.src('./sass/*.scss')
@@ -46,7 +47,7 @@ gulp.task('sass:build', function () {
 });
 
 gulp.task('sass:watch', function () {
-    gulp.watch('./sass/*.scss', ['sass:build']);
+    gulp.watch('./sass/*.sass', ['sass:build']);
 });
 
 gulp.task('webserver', function() {
