@@ -36,7 +36,7 @@ define(['draggableWindow', 'frozenBackground', 'sound'], function(draggableWindo
                 var draggableWindowMoved = draggableWindow.onMouseMoveEvent();
                 if(draggableWindowMoved){
                     var draggableWindowCoordinates = draggableWindow.getCoordinates();
-                    frozenBackground.addFrozenErrorWindow(draggableWindowCoordinates.left, draggableWindowCoordinates.top);
+                    frozenBackground.addFrozenErrorWindow(draggableWindowCoordinates.x, draggableWindowCoordinates.y);
                 }
             }, true);
         };

@@ -76,15 +76,15 @@ define(['delay'], function(delay){
         var isDivOutsideOfTheViewport = function(){
             var divCoordinates = getDivCoordinates();
             var viewportSize = getViewportSize();
-            var isDivVerticallyOutside = divCoordinates.top + 25 > viewportSize.height;
-            var isDivHorizontallyOutside = divCoordinates.left + 25 > viewportSize.width;
+            var isDivVerticallyOutside = divCoordinates.y + 25 > viewportSize.height;
+            var isDivHorizontallyOutside = divCoordinates.x + 25 > viewportSize.width;
             return isDivVerticallyOutside || isDivHorizontallyOutside;
         };
 
         var getDivCoordinates = function(){
             return{
-                left: parseInt(div.style.left, 10),
-                top: parseInt(div.style.top, 10)
+                x: parseInt(div.style.left, 10),
+                y: parseInt(div.style.top, 10)
             };
         };
 
