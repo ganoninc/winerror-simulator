@@ -1,17 +1,21 @@
 define([], function(){ 
     var frozenBackground = (function(){
         var canvas = document.getElementById("frozen-background-simulator__canvas");
-        var context = canvas.getContext("2d");
+        var canvasContext = canvas.getContext("2d");
         var baseImage = document.getElementById("frozen-background-simulator__base-image");
         
         var init = function(){
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            setCanvasSizeAccordingToMonitorResolution();
             canvas.style.display = "block";
         };
 
+        var setCanvasSizeAccordingToMonitorResolution = function(){
+            canvas.width = screen.width;
+            canvas.height = screen.height;
+        };
+
         var addFrozenErrorWindow = function(x,y){
-            context.drawImage(baseImage, x, y);
+            canvasContext.drawImage(baseImage, x, y);
         };
 
         init(); 
