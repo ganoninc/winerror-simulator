@@ -5,11 +5,11 @@ define([], function(){
         var baseImage = document.getElementById("frozen-background-simulator__base-image");
         
         var init = function(){
-            setCanvasSizeAccordingToMonitorResolution();
+            setCanvasSizeAccordingToScreenResolution();
             canvas.style.display = "block";
         };
 
-        var setCanvasSizeAccordingToMonitorResolution = function(){
+        var setCanvasSizeAccordingToScreenResolution = function(){
             canvas.width = screen.width;
             canvas.height = screen.height;
         };
