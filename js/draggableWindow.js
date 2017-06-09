@@ -17,6 +17,15 @@ define(['delay'], function(delay){
         var divWidth = 354;
         var userHasMovedTheDiv = false;
 
+        var init = function(){
+            preloadUnfocusedState();
+        };
+
+        var preloadUnfocusedState = function(){
+            delay(addUnfocusedStateToDiv, 0)
+            .delay(removeUnfocusedStateToDiv, 25);
+        };
+
         var display = function(){
             centerDiv();
             div.style.display = "block";
@@ -130,6 +139,8 @@ define(['delay'], function(delay){
         var removeUnfocusedStateToDiv = function(){
             div.classList.remove('draggable-window--state-unfocused');
         };
+
+        init();
 
         return {
             display: display,
