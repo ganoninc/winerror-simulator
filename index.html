@@ -27,7 +27,10 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
-        <canvas class="frozen-background-simulator" id="frozen-background-simulator"></canvas>
+        <div class="frozen-background-simulator">
+            <canvas class="frozen-background-simulator__canvas" id="frozen-background-simulator__canvas"></canvas>
+            <img src="./img/window.png" class="frozen-background-simulator__base-image" id="frozen-background-simulator__base-image" alt="Invisible base image used for drawing the background" />
+        </div>
         <div class="draggable-window" id="draggable-window">
             <div class="draggable-window__title-bar-area" id="draggable-window__title-bar-area"></div>
         </div>

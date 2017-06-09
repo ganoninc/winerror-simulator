@@ -51,7 +51,9 @@ define(['delay'], function(delay){
                     };
                     moveDiv(newDivCoordinates.left, newDivCoordinates.top); 
                 }
+                return true;
             }
+            return false;
         };
 
         var onWindowResizeEvent = function(){
@@ -84,6 +86,10 @@ define(['delay'], function(delay){
                 left: parseInt(div.style.left, 10),
                 top: parseInt(div.style.top, 10)
             };
+        };
+
+        var getCoordinates = function(){
+            return getDivCoordinates();
         };
 
         var moveDiv = function(left, top){
@@ -131,7 +137,8 @@ define(['delay'], function(delay){
             playForcedFocusAnimation: playForcedFocusAnimation,
             onMouseUpEvent: onMouseUpEvent,
             onMouseMoveEvent: onMouseMoveEvent,
-            onWindowResizeEvent: onWindowResizeEvent
+            onWindowResizeEvent: onWindowResizeEvent,
+            getCoordinates: getCoordinates
         };
     }());
 

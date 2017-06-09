@@ -14,6 +14,9 @@ body {
   height: 120px; }
   .draggable-window--state-unfocused {
     background: url("../img/unfocused-window.png"); }
-  .draggable-window .draggable-window__title-bar-area {
+  .draggable-window__title-bar-area {
     width: 354px;
     height: 31px; }
+
+.frozen-background-simulator__base-image {
+  display: none; }

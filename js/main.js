@@ -33,7 +33,11 @@ define(['draggableWindow', 'frozenBackground', 'sound'], function(draggableWindo
         var addMouseMoveEventListenerToTheWholePage = function(){
             document.addEventListener('mousemove', function(event) {
                 event.preventDefault();
-                draggableWindow.onMouseMoveEvent();
+                var draggableWindowMoved = draggableWindow.onMouseMoveEvent();
+                if(draggableWindowMoved){
+                    var draggableWindowCoordinates = draggableWindow.getCoordinates();
+                    frozenBackground.addFrozenErrorWindow(draggableWindowCoordinates.left, draggableWindowCoordinates.top);
+                }
             }, true);
         };
 

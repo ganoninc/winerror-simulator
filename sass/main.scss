@@ -22,8 +22,14 @@ body {
     background: $unfocusedWindowURL;
   }
   
-  .draggable-window__title-bar-area {
+  &__title-bar-area {
     width: 354px;
     height: 31px;
+  }
+}
+
+.frozen-background-simulator {
+  &__base-image { 
+    display: none;
   }
 }
