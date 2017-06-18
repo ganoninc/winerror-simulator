@@ -1,6 +1,8 @@
-# Coming soon here: A Windows XP Error Simulator
+# Windows XP Error Simulator
 
-To see an example, watch this [Youtube video](https://www.youtube.com/watch?v=1hAayQ-K9WQ).
+Do you remember that when Windows XP crashed, you used to move the error window and it would draw a long trail of error windows?
+
+You can have fun again with this simulator.
 
 ## Demo ##
 
