@@ -1,6 +1,6 @@
-# Windows XP Error Simulator
+# A Windows XP Error Simulator
 
-Do you remember that when Windows XP crashed, you used to move the error window and it would draw a long trail of error windows?
+Do you remember the time when Windows XP used to freeze and allow you to draw incredible things using the error window? This webapp does that.
 
 You can have fun again with this simulator.
 
@@ -11,3 +11,8 @@ It is possible to test the simulator on its Github page: [ganoninc.github.io/win
 ## Technologies ##
 
 This project makes use of [Vanilla JS](http://vanilla-js.com), [Sass](http://sass-lang.com), [Gulp](http://gulpjs.com), [RequireJS](http://requirejs.org) and [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API,)
+
+
+## TODO ##
+
+* add support for touchscreen devices

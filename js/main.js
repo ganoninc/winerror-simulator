@@ -33,7 +33,7 @@ define(['draggableWindow', 'frozenBackground', 'sound'], function(draggableWindo
         var addMouseMoveEventListenerToTheWholePage = function(){
             document.addEventListener('mousemove', function(event) {
                 event.preventDefault();
-                var draggableWindowMoved = draggableWindow.onMouseMoveEvent();
+                var draggableWindowMoved = draggableWindow.onMouseMoveEvent(event);
                 if(draggableWindowMoved){
                     var draggableWindowCoordinates = draggableWindow.getCoordinates();
                     frozenBackground.addFrozenErrorWindow(draggableWindowCoordinates.x, draggableWindowCoordinates.y);
