@@ -45,7 +45,7 @@ define(['delay'], function(delay){
             isDown = false;
         };
 
-        var onMouseMoveEvent = function(){
+        var onMouseMoveEvent = function(event){
             if (isDown) {
                 userHasMovedTheDiv = true;
                 mousePosition = {
