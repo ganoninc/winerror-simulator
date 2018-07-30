@@ -15,4 +15,4 @@ This project makes use of [Vanilla JS](http://vanilla-js.com), [Sass](http://sas
 
 ## TODO ##
 
-* add support for touchscreen devices
+* ~~add support for touchscreen devices~~
