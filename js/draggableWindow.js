@@ -7,7 +7,6 @@ define(['delay'], function(delay){
     var draggableWindow = (function(){
         var mousePosition;
         var offset = [0,0];
-        var isPointerDown = false;
         var forcedFocusAnimationDelay = 75;
         var isDown = false;
 
@@ -65,7 +64,38 @@ define(['delay'], function(delay){
             return false;
         };
 
-        var onWindowResizeEvent = function(){
+        var addTouchDragEventListenerToTitleBar = function(){
+            divTitleBarArea.addEventListener('drag', function (e) {
+                if (!isDown){
+                    offset = [
+                        div.offsetLeft - e.detail.clientX,
+                        div.offsetTop - e.detail.clientY
+                    ];
+                }
+                isDown = true;
+
+                mousePosition = {
+                    x: event.detail.clientX,
+                    y: event.detail.clientY
+                };
+                var viewportSize = getViewportSize();
+                if (mousePosition.y > 2 && mousePosition.y < viewportSize.height - 2 && mousePosition.x > 2 && mousePosition.x < viewportSize.width - 2) {
+                    var newDivCoordinates = {
+                        left: (mousePosition.x + offset[0]),
+                        top: (mousePosition.y + offset[1])
+                    };
+                    moveDiv(newDivCoordinates.left, newDivCoordinates.top);
+                }
+            });
+        };
+
+        var addTouchDropEventListenerToTitleBar = function(){
+            divTitleBarArea.addEventListener('drop', function () {
+                isDown = false;
+            });
+        };
+
+        var onViewportResizeEvent = function(){
             if(userHasMovedTheDiv){
                 if(isDivOutsideOfTheViewport()){
                     centerDiv();
@@ -148,7 +178,9 @@ define(['delay'], function(delay){
             playForcedFocusAnimation: playForcedFocusAnimation,
             onMouseUpEvent: onMouseUpEvent,
             onMouseMoveEvent: onMouseMoveEvent,
-            onWindowResizeEvent: onWindowResizeEvent,
+            addTouchDragEventListenerToTitleBar: addTouchDragEventListenerToTitleBar,
+            addTouchDropEventListenerToTitleBar: addTouchDropEventListenerToTitleBar,
+            onViewportResizeEvent: onViewportResizeEvent,
             getCoordinates: getCoordinates
         };
     }());

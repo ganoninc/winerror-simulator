@@ -10,18 +10,23 @@ define([], function(){
         };
 
         var setCanvasSizeAccordingToScreenResolution = function(){
-            canvas.width = screen.width;
-            canvas.height = screen.height;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         };
 
         var addFrozenErrorWindow = function(x,y){
             canvasContext.drawImage(baseImage, x, y);
         };
 
+        var onViewportResizeEvent = function(){
+            setCanvasSizeAccordingToScreenResolution();
+        };
+
         init(); 
 
         return {
-            addFrozenErrorWindow: addFrozenErrorWindow
+            addFrozenErrorWindow: addFrozenErrorWindow,
+            onViewportResizeEvent: onViewportResizeEvent
         };
     }());
 

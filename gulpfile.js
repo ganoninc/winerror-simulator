@@ -5,7 +5,6 @@ const sass = require('gulp-sass');
 const webserver = require('gulp-webserver');
 const uglify = require('gulp-uglify');
 const gulpCopy = require('gulp-copy');
-const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const image = require('gulp-image');
 const rjs = require('gulp-requirejs');
