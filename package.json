@@ -1,6 +1,6 @@
 {
   "name": "winerror-simulator",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A Windows XP error simulator. Let you draw using an error window.",
   "main": "index.html",
   "scripts": {
@@ -16,8 +16,8 @@
     "fun",
     "game"
   ],
-  "author": "Romain Giovanetti",
-  "license": "ISC",
+  "author": "Romain Julien Giovanetti",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ganoninc/winerror-simulator.git"
