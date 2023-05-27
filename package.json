@@ -1,6 +1,6 @@
 {
   "name": "winerror-simulator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Windows XP error simulator. Let you draw using an error window.",
   "main": "index.html",
   "scripts": {
@@ -23,13 +23,14 @@
     "url": "https://github.com/ganoninc/winerror-simulator.git"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.11",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.4.0",
-    "gulp-image": "^2.9.0",
-    "gulp-requirejs": "^1.0.0-rc2",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.1.2",
-    "gulp-webserver": "^0.9.1"
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-copy": "^4.0.1",
+    "gulp-image": "^6.2.1",
+    "gulp-requirejs": "^1.4.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webserver": "^0.9.1",
+    "sass": "^1.62.1"
   }
 }

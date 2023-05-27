@@ -3,7 +3,8 @@ body {
   margin: 0px;
   overflow: hidden;
   background: url("../img/wallpaper.jpg") no-repeat center center fixed;
-  background-size: cover; }
+  background-size: cover;
+}
 
 .draggable-window {
   display: none;
@@ -11,12 +12,16 @@ body {
   background: url("../img/window.png");
   margin: auto;
   width: 354px;
-  height: 120px; }
-  .draggable-window--state-unfocused {
-    background: url("../img/unfocused-window.png"); }
-  .draggable-window__title-bar-area {
-    width: 354px;
-    height: 31px; }
+  height: 120px;
+}
+.draggable-window--state-unfocused {
+  background: url("../img/unfocused-window.png");
+}
+.draggable-window__title-bar-area {
+  width: 354px;
+  height: 31px;
+}
 
 .frozen-background-simulator__base-image {
-  display: none; }
+  display: none;
+}
